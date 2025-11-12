@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Feliz Aniversário, Maria Bárbara, meu amor💖</title>
+<title>Feliz Aniversário, Maria Bárbara , meu amor💖</title>
 <style>
   body {
     margin: 0;
@@ -11,12 +11,6 @@
     background-color: #ffe6f0;
     color: #b30059;
     overflow-x: hidden;
-    animation: fadeIn 2s ease-in;
-  }
-
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
   }
 
   h1 {
@@ -24,12 +18,6 @@
     margin-top: 60px;
     font-size: 3em;
     color: #ff1493;
-    animation: pulse 2s infinite;
-  }
-
-  @keyframes pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.05); color: #ff66b2; }
   }
 
   .hearts {
@@ -71,29 +59,25 @@
     font-size: 1.2em;
   }
 
-  /* Galeria com slideshow */
   .gallery {
-    position: relative;
-    width: 250px;
-    height: 250px;
     margin: 40px auto;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 0 20px rgba(255, 105, 180, 0.4);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
   }
 
   .gallery img {
-    position: absolute;
-    width: 100%;
-    height: 100%;
+    width: 220px;
+    height: 220px;
     object-fit: cover;
-    border-radius: 20px;
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(255, 105, 180, 0.4);
+    transition: transform 0.3s ease;
   }
 
-  .gallery img.active {
-    opacity: 1;
+  .gallery img:hover {
+    transform: scale(1.1);
   }
 
   .surprise-btn {
@@ -112,6 +96,7 @@
     background-color: #ff1a8c;
   }
 
+  /* Atualizado para a animação fade-in */
   .hidden-message {
     display: none;
     font-size: 1.4em;
@@ -130,10 +115,12 @@
     opacity: 1;
   }
 
+  /* Áudio está escondido */
   audio {
     display: none;
   }
 
+  /* Estilo do botão de música */
   .music-btn {
     background-color: #ff4da6;
     color: white;
@@ -150,35 +137,13 @@
     background-color: #ff1a8c;
   }
 
-  @media (max-width: 600px) {
-    h1 { font-size: 2em; }
-    .message { font-size: 1em; padding: 15px; }
-    .gallery { width: 180px; height: 180px; }
-  }
-
-
-  .gallery {
-  position: relative;
-  width: 90%; /* ocupa quase toda a tela */
-  max-width: 400px;
-  margin: 40px auto;
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 0 20px rgba(255, 105, 180, 0.4);
-  background-color: #fff0f6;
-  height: auto;
+@media (max-width: 600px) {
+  h1 { font-size: 2em; }
+  .message { font-size: 1em; padding: 15px; }
+  .gallery img { width: 150px; height: 150px; }
 }
 
-.gallery img {
-  position: absolute;
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-  border-radius: 20px;
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
-}
-
+  
 </style>
 </head>
 <body>
@@ -190,18 +155,17 @@
 
   <div class="message">
     <p>
-      Hoje o dia é todo seu, meu amor, e eu quero que ele seja tão lindo quanto o seu sorriso é pra mim.  
-      Cada momento com você é um presente que a vida me deu, e eu quero poder aproveitar muitos mais.  
-      Eu te amo muito — você é a razão do meu viver.  
-      Que neste dia especial você receba tudo de bom que o universo tem a oferecer.  
+      Hoje o dia é todo seu, meu amor, e eu quero que ele seja tão lindo quanto o seu sorriso es pra mim.  
+      Cada momento com voce é um presente que a vida me deu,e eu quero poder aproveitar mais momentos. Eu te amo muito. voce é a razão do meu viver.
+      Que neste dia especial eu só desejo que você receba tudo de bom que o universo tem a oferecer.  
       Que nunca falte amor, alegria e sonhos — e que eu possa estar com você pra celebrar todos eles.  
     </p>
     <p><strong>Feliz aniversário, meu amor! 💕</strong></p>
   </div>
 
-  <!-- Slideshow de fotos -->
-  <div class="gallery" id="gallery">
-    <img src="meuamor2.jpg" class="active" alt="Foto 1">
+  <div class="gallery">
+    <!-- Substitua os links abaixo pelas fotos de vocês -->
+    <img src="meuamor2.jpg" alt="Foto 1">
     <img src="meuamor.jpg" alt="Foto 2">
     <img src="meuamor3.jpg" alt="Foto 3">
   </div>
@@ -215,8 +179,10 @@
     Te amo pra sempre! 💞💫
   </div>
 
+  <!-- Botão para reproduzir música -->
   <button class="music-btn" onclick="playMusic()">🎶 Reproduzir Música 🎶</button>
 
+  <!-- Música de fundo (oculta inicialmente) -->
   <audio id="audio" loop>
     <source src="Scorpions - Wind Of Change (Official Music Video) [n4RjJKxsamQ].mp3" type="audio/mpeg">
     Seu navegador não suporta áudio.
@@ -226,7 +192,7 @@
 <script>
 function showSurprise() {
   const msg = document.getElementById("surprise");
-  msg.classList.add("show");
+  msg.classList.add("show");  // Usando a animação de fade-in
   confetti();
 }
 
@@ -238,24 +204,16 @@ function confetti() {
     heart.style.left = Math.random() * 100 + "vw";
     heart.style.animationDuration = 3 + Math.random() * 3 + "s";
     document.getElementById("hearts").appendChild(heart);
+
     setTimeout(() => heart.remove(), 6000);
   }
 }
 
+// Função para reproduzir música quando o botão for clicado
 function playMusic() {
   const audio = document.getElementById("audio");
-  audio.play().catch(() => alert("Clique na tela para permitir o som 🎵"));
+  audio.play();
 }
-
-/* --- Slideshow automático --- */
-let current = 0;
-const slides = document.querySelectorAll("#gallery img");
-
-setInterval(() => {
-  slides[current].classList.remove("active");
-  current = (current + 1) % slides.length;
-  slides[current].classList.add("active");
-}, 3000); // muda a cada 3 segundos
 </script>
 
 </body>
