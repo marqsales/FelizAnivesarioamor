@@ -155,6 +155,30 @@
     .message { font-size: 1em; padding: 15px; }
     .gallery { width: 180px; height: 180px; }
   }
+
+
+  .gallery {
+  position: relative;
+  width: 90%; /* ocupa quase toda a tela */
+  max-width: 400px;
+  margin: 40px auto;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(255, 105, 180, 0.4);
+  background-color: #fff0f6;
+  height: auto;
+}
+
+.gallery img {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 20px;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
 </style>
 </head>
 <body>
